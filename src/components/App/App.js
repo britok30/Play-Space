@@ -15,7 +15,7 @@ export default class App extends Component {
       games: [],
       page: 1,
       per: 39,
-      count: 10
+      count: 25
     };
   }
 

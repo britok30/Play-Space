@@ -23,13 +23,11 @@
 
 .main-btn {
   font-size: 1.4rem;
+  font-weight: 300;
 }
 
-.form {
-  margin: auto;
-}
 .main-input {
-  width: 30rem !important;
+  width: 31rem !important;
   border-radius: 5px;
 }
 
