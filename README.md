@@ -1,12 +1,3 @@
-# Play-Space
-
-### Play Space
-
-Play Space. Built using React. This is a website featuring RAWg video game api and was made to showcase different games. I used the original website to gain inspiration. This is not intended for commercial use. I only made this as a side project to have fun with React. 
-
-Demo: 
-
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -79,5 +70,12 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 
 
+
+
+### Play Space
+
+Play Space. Built using React. This is a website featuring RAWg video game api and was made to showcase different games. I used the original website to gain inspiration. This is not intended for commercial use. I only made this as a side project to have fun with React. 
+
+Demo: 
 
 
