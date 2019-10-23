@@ -1,3 +1,22 @@
+
+### Play Space
+
+Play Space. Built using React. This is a website featuring RAWg video game api and was made to showcase different games. I used the original website to gain inspiration. This is not intended for commercial use. I only made this as a side project to have fun with React. 
+
+
+Demo: https://playspace.netlify.com
+
+User can:
+-Search for games (press enter or click submit) - Top 25 choices come out
+-Infinite scroll with a wide variety of games
+-Press "more info" will lead to external website with game info
+-Press "screenshots" for game screenshots
+
+
+Design inspiration from rawg. Not a commercial project, simply made for fun. 
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -70,11 +89,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 
 
-
-
-### Play Space
-
-Play Space. Built using React. This is a website featuring RAWg video game api and was made to showcase different games. I used the original website to gain inspiration. This is not intended for commercial use. I only made this as a side project to have fun with React. 
 
 
 
