@@ -1,0 +1,39 @@
+.navbar {
+  color: white;
+  padding-top: 3rem;
+}
+
+.navbar-brand {
+  color: #fff !important;
+  text-align: center;
+}
+
+.brand-name {
+  padding-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.navlink {
+  font-size: 1.4rem;
+  color: #fff !important;
+  font-weight: 300;
+}
+
+.main-btn {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.main-input {
+  width: 31rem !important;
+  border-radius: 5px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .main-btn {
+  margin: 3rem auto;
+}
+}
+

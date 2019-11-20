@@ -1,0 +1,44 @@
+.lead-head {
+  color: #fff;
+  font-size: 8rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.game-card {
+  width: 33rem !important;
+  background-color: #202020 !important;
+  color: #fff;
+  border: 1px solid #fff !important;
+  border-radius: 5px !important;
+  margin: 3rem auto;
+  transition: all 0.5s;
+}
+
+.game-card:hover {
+  transform: scale(1.07);
+}
+
+.game-row {
+  margin-top: 10rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.detail {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.btn {
+  font-size: 1.7rem;
+  border: 1px solid #fff;
+}
+
+.lite {
+  font-weight: 300;
+  color: #fae6b8;
+}

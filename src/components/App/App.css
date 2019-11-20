@@ -1,0 +1,21 @@
+.main-row {
+  margin-top: 8rem;
+}
+
+.load-btn {
+  font-size: 2.5rem;
+  margin: 5rem auto;
+
+}
+
+.app {
+   background: linear-gradient(to right bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(../images/gow.png) no-repeat center center/cover fixed !important;
+   width: 100%;
+   height: 100%;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1024px) {
+  .app {
+    background: #151515 !important;
+  }
+}
