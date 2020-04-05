@@ -91,7 +91,7 @@ export default class App extends Component {
     return (
       <Fragment>
         <div className="app">
-          <div className="container">
+          <div className="container-fluid">
             <Navigation search={this.handleChange} submit={this.handleSubmit} />
           </div>
           <div className="container-fluid">
@@ -100,7 +100,7 @@ export default class App extends Component {
                 <Sidebar />
               </div>
               <div className="col-md-10">
-                <div className="container">
+                <div className="container-fluid">
                   <Games
                     games={this.state.games}
                     fetchGames={this.fetchGames}

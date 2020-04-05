@@ -10,7 +10,7 @@ class Games extends Component {
     return (
       <Fragment>
         <h1 className="lead-head">
-          Play <span className="lite">Space</span>
+          PlaySpace
         </h1>
         <InfiniteScroll
           className="row"

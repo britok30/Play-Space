@@ -1,44 +1,43 @@
 .lead-head {
-  color: #fff;
-  font-size: 8rem;
-  text-align: center;
-  font-weight: 600;
+    color: #fff;
+    font-size: 8rem;
+    text-align: center;
+    font-weight: 600;
 }
 
 .game-card {
-  width: 33rem !important;
-  background-color: #202020 !important;
-  color: #fff;
-  border: 1px solid #fff !important;
-  border-radius: 5px !important;
-  margin: 3rem auto;
-  transition: all 0.5s;
+    width: 33rem !important;
+    background-color: #202020 !important;
+    color: #fff;
+    border-radius: 20px !important;
+    margin: 3rem auto;
+    transition: all 1.3s;
 }
 
 .game-card:hover {
-  transform: scale(1.07);
+    transform: scale(1.07);
 }
 
 .game-row {
-  margin-top: 10rem;
+    margin-top: 10rem;
+}
+
+.game-cover {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .title {
-  font-size: 2rem;
-  font-weight: 600;
+    font-size: 2rem;
+    font-weight: 600;
 }
 
 .detail {
-  font-size: 1.5rem;
-  font-weight: 300;
+    font-size: 1.5rem;
+    font-weight: 300;
 }
 
 .btn {
-  font-size: 1.7rem;
-  border: 1px solid #fff;
-}
-
-.lite {
-  font-weight: 300;
-  color: #fae6b8;
+    font-size: 1.7rem;
+    border: 1px solid #fff;
 }

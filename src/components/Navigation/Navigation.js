@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Form, FormControl, Button } from "react-bootstrap";
 import "./Navigation.css";
 import Play from "../images/play.png";
 
@@ -22,22 +22,13 @@ class Navigation extends React.Component {
                 type="text"
                 placeholder="Search Games"
                 className="mr-sm-2 main-input"
-                style={{ fontSize: "1.3rem", fontWeight: 300 }}
+                style={{ fontSize: "1.5rem", fontWeight: 400 }}
                 onChange={search}
               />
-              <Button className="main-btn" variant="outline-light" type="submit" onSubmit={submit}>
+              <Button className="main-btn" variant="dark" type="submit" onSubmit={submit}>
                 Search
               </Button>
             </Form>
-
-            <Nav className="ml-auto">
-              <Nav.Link className="navlink" href="#home">
-                Login
-              </Nav.Link>
-              <Nav.Link className="navlink" href="#link">
-                Signup
-              </Nav.Link>
-            </Nav>
           </Navbar.Collapse>
         </Navbar>
       </div>
