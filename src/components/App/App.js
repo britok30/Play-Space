@@ -49,16 +49,6 @@ export default class App extends Component {
             });
     };
 
-    // loadMore = () => {
-    //   this.setState(
-    //     prevState => ({
-    //       page: prevState.page + 1,
-    //       scrolling: true
-    //     }),
-    //     this.loadGames
-    //   );
-    // };
-
     componentDidMount() {
         this.loadGames();
     }
