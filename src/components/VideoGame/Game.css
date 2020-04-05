@@ -1,7 +1,8 @@
 .lead-head {
     color: #fff;
-    font-size: 8rem;
+    font-size: 10rem;
     text-align: center;
+    letter-spacing: 10px;
     font-weight: 600;
 }
 
@@ -34,10 +35,13 @@
 
 .detail {
     font-size: 1.5rem;
-    font-weight: 300;
+    font-weight: 400;
+    color: #666;
+    text-align: left;
 }
 
-.btn {
-    font-size: 1.7rem;
-    border: 1px solid #fff;
+.more-info,
+.screenshots {
+    display: block;
+    font-size: 1.3rem;
 }

@@ -1,46 +1,36 @@
 import React, { Fragment } from "react";
 import "./Game.css";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 const Game = props => {
-    const { name, cover, rating, date, meta, slug } = props;
+    const { name, cover, rating, date, slug } = props;
     return (
         <Fragment>
             <Card className="game-card">
-                <Card.Img
-                    variant="top"
-                    src={cover}
-                    className="game-cover"
-                />
+                <Card.Img variant="top" src={cover} className="game-cover" />
                 <Card.Body>
                     <Card.Title className="title">{name}</Card.Title>
-                    <Card.Text className="detail"></Card.Text>
-                    <Button
-                        className="btn"
-                        variant="outline-dark"
-                        style={{ margin: 2 }}
+                    <Card.Text className="detail">
+                        Release Date: {date}
+                    </Card.Text>
+                    <Card.Text className="detail">Rating: {rating}</Card.Text>
+                    <a
+                        className="more-info"
+                        href={`https://rawg.io/games/${slug}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        <a
-                            href={`https://rawg.io/games/${slug}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            More Info
-                        </a>
-                    </Button>
-                    <Button
-                        className="btn"
-                        variant="outline-dark"
-                        style={{ margin: 2 }}
+                        More Info
+                    </a>
+
+                    <a
+                        className="screenshots"
+                        href={`https://rawg.io/games/${slug}/screenshots`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        <a
-                            href={`https://rawg.io/games/${slug}/screenshots`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Screenshots
-                        </a>
-                    </Button>
+                        Screenshots
+                    </a>
                 </Card.Body>
             </Card>
         </Fragment>
