@@ -42,24 +42,3 @@ class Games extends Component {
 }
 
 export default Games;
-
-//  {
-//    !games.length ? (
-//      <h1 style={{ fontSize: "5rem", color: "#fff" }}>Loading...</h1>
-//    ) : (
-//      games.map(game => {
-//        return (
-//          <Game
-//            key={game.id}
-//            name={game.name}
-//            description={game.description}
-//            cover={game.background_image}
-//            rating={game.rating}
-//            meta={game.metacritic}
-//            date={game.released}
-//            slug={game.slug}
-//          />
-//        );
-//      })
-//    );
-//  }
