@@ -23,8 +23,7 @@ class Games extends Component {
         >
           {games.map(game => {
             return (
-              <Game
-                className="col-md-4"
+              <Game    
                 key={game.id}
                 name={game.name}
                 description={game.description}
