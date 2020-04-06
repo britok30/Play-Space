@@ -1,9 +1,10 @@
 import React, { Fragment } from "react";
 import "./Game.css";
 import { Card } from "react-bootstrap";
+import { Link } from "@reach/router";
 
 const Game = props => {
-    const { name, cover, rating, date, slug } = props;
+    const { name, cover, rating, date, slug, singleGame } = props;
     return (
         <Fragment>
             <Card className="game-card">
@@ -30,6 +31,10 @@ const Game = props => {
                         rel="noopener noreferrer"
                     >
                         Screenshots
+                    </a>
+                    <a href="" onClick={singleGame}>
+                        {" "}
+                        More
                     </a>
                 </Card.Body>
             </Card>

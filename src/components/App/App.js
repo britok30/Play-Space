@@ -2,10 +2,10 @@ import React, { Component, Fragment } from "react";
 import Navigation from "../Navigation/Navigation";
 import Sidebar from "../Sidebar/Sidebar";
 import Games from "../VideoGame/Games";
-import { Link } from "@reach/router";
-import Footer from "../Footer/Footer";
 import GameInfo from "../MainVideoGamePage/GameInfo";
+import Footer from "../Footer/Footer";
 import axios from "axios";
+import { Router } from "@reach/router";
 import "./App.css";
 
 export default class App extends Component {
@@ -15,6 +15,7 @@ export default class App extends Component {
         this.state = {
             searchTerm: "",
             games: [],
+            id: "",
             page: 1,
             per: 39,
             count: 25
@@ -53,7 +54,7 @@ export default class App extends Component {
 
     componentDidMount = () => {
         this.loadGames();
-    }
+    };
 
     // --------------------------------------------------------
     // EVENT HANDLERS
@@ -75,6 +76,23 @@ export default class App extends Component {
 
     handleChange = e => {
         this.setState({ searchTerm: e.target.value });
+    };
+
+    loadSingleGame = (gameId) => {
+
+        const { id } = this.state;
+        axios
+            .get(
+                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games/${id}`
+            )
+            .then(res => {
+                console.log(res.data.results);
+                this.setState({
+                    games: res.data.results,
+                    id: res.data.results[0].id
+                });
+            })
+            .catch(err => console.log(err));
     };
 
     // --------------------------------------------------------
@@ -99,16 +117,16 @@ export default class App extends Component {
                                     <Games
                                         games={this.state.games}
                                         fetchGames={this.fetchGames}
+                                        singleGame={this.loadSingleGame}
                                     />
                                 </div>
-                                <div>
-                                    <Link to="/gameinfo">
-                                        <GameInfo
-                                            games={this.state.games}
-                                        />
-                                    </Link>
-                                </div>
                             </div>
+                            <Router>
+                                <GameInfo
+                                    path="/gameinfo"
+                                    games={this.state.games}
+                                />
+                            </Router>
                             <Footer />
                         </div>
                     </div>
