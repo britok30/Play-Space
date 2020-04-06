@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import Game from "./Game";
+import SingleGame from "./SingleGame";
 import "./Game.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -23,7 +23,7 @@ class Games extends Component {
         >
           {games.map(game => {
             return (
-              <Game    
+              <SingleGame    
                 key={game.id}
                 name={game.name}
                 description={game.description}
