@@ -43,5 +43,6 @@
 .more-info,
 .screenshots {
     display: block;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    padding: 1.5rem auto 1.5rem auto;
 }

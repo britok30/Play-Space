@@ -15,7 +15,6 @@ export default class App extends Component {
         id: "",
         page: 1,
         per: 39,
-        count: 25,
     };
 
     // loadGames = () => {
@@ -34,11 +33,11 @@ export default class App extends Component {
     // };
 
     fetchGames = () => {
-        const { count, page } = this.state;
+        const { per, page } = this.state;
         this.setState({ page: this.state.page + 1 });
         axios
             .get(
-                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?page=${page}&page_size=${count}`
+                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?page=${page}&page_size=${per}`
             )
             .then((res) => {
                 console.log(res.data.results);
