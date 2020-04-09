@@ -14,7 +14,7 @@ export default class App extends Component {
         games: [],
         id: "",
         page: 1,
-        per: 39,
+        per: 39
     };
 
     // loadGames = () => {
@@ -42,9 +42,13 @@ export default class App extends Component {
             .then((res) => {
                 console.log(res.data.results);
                 this.setState({
-                    games: this.state.games.concat(res.data.results),
+                    games: this.state.games.concat(res.data.results).sort(this.randomize),
                 });
             });
+    };
+
+    randomize = (a) => {
+        return Math.random() - 0.5;
     };
 
     componentDidMount = () => {
