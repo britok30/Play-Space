@@ -13,58 +13,31 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li>
-                        <a className="link-header" href="#">
+                        <Link className="link-header" to="/">
                             Reviews
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a className="link-header" href="#">
+                        <Link className="link-header" to="/">
                             New Releases
-                        </a>
-                        <ul className="second-list">
-                            <li>Last 30 Days</li>
-                            <li>This Week</li>
-                            <li>Next Week</li>
-                            <li>Release Calendar</li>
-                        </ul>
+                        </Link>
                     </li>
                     <li>
-                        <a className="link-header" href="#">
+                        <Link className="link-header" to="/">
                             Top
-                        </a>
-                        <ul className="second-list">
-                            <li>Best of the Year</li>
-                            <li>Popular in 2019</li>
-                            <li>All Time top 250</li>
-                        </ul>
+                        </Link>
                     </li>
                     <li>
-                        <a className="link-header" href="#">
+                        <Link className="link-header" to="/">
                             Platforms
-                        </a>
-                        <ul className="second-list">
-                            <li>PC</li>
-                            <li>Playstation 4</li>
-                            <li>Xbox One</li>
-                            <li>Nintendo Switch</li>
-                            <li>iOS</li>
-                            <li>Android</li>
-                        </ul>
+                        </Link>
                     </li>
                     <li>
-                        <a className="link-header" href="#">
+                        <Link className="link-header" to="/">
                             Genres
-                        </a>
-                        <ul className="second-list">
-                            <li>Action</li>
-                            <li>RPG</li>
-                            <li>Shooter</li>
-                            <li>Adventure</li>
-                            <li>Racing</li>
-                            <li>Sports</li>
-                        </ul>
+                        </Link>
                     </li>
-                    <li>
+                    <li className="last-child">
                         <p>Made by Kelvin Brito</p>
                         <p>
                             Video Game data from RAWG API

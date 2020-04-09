@@ -2,8 +2,9 @@ import React, { Fragment } from "react";
 import "./Game.css";
 import { Card } from "react-bootstrap";
 
-const Game = props => {
-    const { name, cover, rating, date, slug, singleGame } = props;
+const Game = (props) => {
+
+    const { name, cover, rating, date, slug, meta } = props;
     return (
         <Fragment>
             <Card className="game-card">
@@ -13,7 +14,12 @@ const Game = props => {
                     <Card.Text className="detail">
                         Release Date: {date}
                     </Card.Text>
-                    <Card.Text className="detail">Rating: {rating}</Card.Text>
+                    <Card.Text className="detail">
+                        Rating: {rating ? rating : "N/A"}
+                    </Card.Text>
+                    <Card.Text className="detail">
+                        Metacritic: {meta ? meta : "N/A"}
+                    </Card.Text>
                     <a
                         className="more-info"
                         href={`https://rawg.io/games/${slug}`}
@@ -30,10 +36,6 @@ const Game = props => {
                         rel="noopener noreferrer"
                     >
                         Screenshots
-                    </a>
-                    <a href="" onClick={singleGame}>
-                        {" "}
-                        More
                     </a>
                 </Card.Body>
             </Card>

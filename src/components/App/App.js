@@ -18,20 +18,20 @@ export default class App extends Component {
         count: 25,
     };
 
-    loadGames = () => {
-        const { per, page } = this.state;
-        axios
-            .get(
-                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?page=${page}&page_size=${per}`
-            )
-            .then((res) => {
-                console.log(res.data.results);
-                this.setState({
-                    games: res.data.results,
-                });
-            })
-            .catch((err) => console.log(err));
-    };
+    // loadGames = () => {
+    //     const { per, page } = this.state;
+    //     axios
+    //         .get(
+    //             `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?page=${page}&page_size=${per}`
+    //         )
+    //         .then((res) => {
+    //             console.log(res.data.results);
+    //             this.setState({
+    //                 games: res.data.results,
+    //             });
+    //         })
+    //         .catch((err) => console.log(err));
+    // };
 
     fetchGames = () => {
         const { count, page } = this.state;
@@ -49,7 +49,7 @@ export default class App extends Component {
     };
 
     componentDidMount = () => {
-        this.loadGames();
+        this.fetchGames();
     };
 
     // --------------------------------------------------------
@@ -72,22 +72,6 @@ export default class App extends Component {
 
     handleChange = (e) => {
         this.setState({ searchTerm: e.target.value });
-    };
-
-    loadSingleGame = (gameId) => {
-        const { id } = this.state;
-        axios
-            .get(
-                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games/${id}`
-            )
-            .then((res) => {
-                console.log(res.data.results);
-                this.setState({
-                    games: res.data.results,
-                    id: res.data.results[0].id,
-                });
-            })
-            .catch((err) => console.log(err));
     };
 
     // --------------------------------------------------------
@@ -115,11 +99,13 @@ export default class App extends Component {
                                                 games={this.state.games}
                                                 fetchGames={this.fetchGames}
                                             />
-                                            <Route
+                                            {/* <Route
                                                 exact
-                                                path="/popular"
-                                                component={PopularGames}
-                                            />
+                                                path="/"
+                                                component={Games}
+                                                games={this.state.games}
+
+                                            /> */}
                                         </Switch>
                                     </div>
                                 </div>

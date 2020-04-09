@@ -5,7 +5,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 class Games extends Component {
     render() {
-        const { games, fetchGames, singleGame } = this.props;
+        const { games, fetchGames } = this.props;
 
         return (
             <Fragment>
@@ -21,10 +21,9 @@ class Games extends Component {
                         </h1>
                     }
                 >
-                    {games.map(game => {
+                    {games.map((game) => {
                         return (
                             <SingleGame
-                                singleGame={singleGame}
                                 key={game.id}
                                 name={game.name}
                                 description={game.description}
