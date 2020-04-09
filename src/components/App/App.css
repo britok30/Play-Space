@@ -9,7 +9,7 @@
 }
 
 .app {
-   background: linear-gradient(to right bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(../images/The-Last-of-Us-Part-2.jpg) no-repeat center center/cover fixed !important;
+   background: linear-gradient(to right bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(../images/kh3.png) no-repeat center center/cover fixed !important;
    width: 100%;
    height: 200%;
 }
