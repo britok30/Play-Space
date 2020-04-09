@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Form, FormControl, Button } from "react-bootstrap";
-import { Link } from "@reach/router";
 import "./Navigation.css";
+import { Link } from "react-router-dom";
 import Play from "../images/play.png";
 
 class Navigation extends React.Component {

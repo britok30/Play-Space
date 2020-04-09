@@ -2,25 +2,21 @@ import React, { Component, Fragment } from "react";
 import Navigation from "../Navigation/Navigation";
 import Sidebar from "../Sidebar/Sidebar";
 import Games from "../VideoGame/Games";
-import GameInfo from "../MainVideoGamePage/GameInfo";
+import PopularGames from "../Popular/PopularGames";
 import Footer from "../Footer/Footer";
 import axios from "axios";
-import { Router } from "@reach/router";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 export default class App extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            searchTerm: "",
-            games: [],
-            id: "",
-            page: 1,
-            per: 39,
-            count: 25
-        };
-    }
+    state = {
+        searchTerm: "",
+        games: [],
+        id: "",
+        page: 1,
+        per: 39,
+        count: 25,
+    };
 
     loadGames = () => {
         const { per, page } = this.state;
@@ -28,13 +24,13 @@ export default class App extends Component {
             .get(
                 `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?page=${page}&page_size=${per}`
             )
-            .then(res => {
+            .then((res) => {
                 console.log(res.data.results);
                 this.setState({
-                    games: res.data.results
+                    games: res.data.results,
                 });
             })
-            .catch(err => console.log(err));
+            .catch((err) => console.log(err));
     };
 
     fetchGames = () => {
@@ -44,10 +40,10 @@ export default class App extends Component {
             .get(
                 `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?page=${page}&page_size=${count}`
             )
-            .then(res => {
+            .then((res) => {
                 console.log(res.data.results);
                 this.setState({
-                    games: this.state.games.concat(res.data.results)
+                    games: this.state.games.concat(res.data.results),
                 });
             });
     };
@@ -59,7 +55,7 @@ export default class App extends Component {
     // --------------------------------------------------------
     // EVENT HANDLERS
 
-    handleSubmit = e => {
+    handleSubmit = (e) => {
         e.preventDefault();
 
         const { searchTerm, count } = this.state;
@@ -67,71 +63,72 @@ export default class App extends Component {
             .get(
                 `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?search=${searchTerm}&page_size=${count}`
             )
-            .then(res => {
+            .then((res) => {
                 console.log(res.data.results);
                 this.setState({ games: [...res.data.results] });
             })
-            .catch(err => console.log(err));
+            .catch((err) => console.log(err));
     };
 
-    handleChange = e => {
+    handleChange = (e) => {
         this.setState({ searchTerm: e.target.value });
     };
 
     loadSingleGame = (gameId) => {
-
         const { id } = this.state;
         axios
             .get(
                 `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games/${id}`
             )
-            .then(res => {
+            .then((res) => {
                 console.log(res.data.results);
                 this.setState({
                     games: res.data.results,
-                    id: res.data.results[0].id
+                    id: res.data.results[0].id,
                 });
             })
-            .catch(err => console.log(err));
+            .catch((err) => console.log(err));
     };
 
     // --------------------------------------------------------
 
     render() {
         return (
-            <Fragment>
-                <div className="app">
-                    <div className="container-fluid">
-                        <Navigation
-                            search={this.handleChange}
-                            submit={this.handleSubmit}
-                        />
-                    </div>
-                    <div className="container-fluid">
-                        <div className="row main-row">
-                            <div className="col-md-2">
-                                <Sidebar />
-                            </div>
-                            <div className="col-md-10">
-                                <div className="container-fluid">
-                                    <Games
-                                        games={this.state.games}
-                                        fetchGames={this.fetchGames}
-                                        singleGame={this.loadSingleGame}
-                                    />
+            <Router>
+                <Fragment>
+                    <div className="app">
+                        <div className="container-fluid">
+                            <Navigation
+                                search={this.handleChange}
+                                submit={this.handleSubmit}
+                            />
+                        </div>
+                        <div className="container-fluid">
+                            <div className="row main-row">
+                                <div className="col-md-2">
+                                    <Sidebar />
                                 </div>
+                                <div className="col-md-10">
+                                    <div className="container-fluid">
+                                        <Switch>
+                                            <Games
+                                                games={this.state.games}
+                                                fetchGames={this.fetchGames}
+                                            />
+                                            <Route
+                                                exact
+                                                path="/popular"
+                                                component={PopularGames}
+                                            />
+                                        </Switch>
+                                    </div>
+                                </div>
+                                <Footer />
                             </div>
-                            <Router>
-                                <GameInfo
-                                    path="/gameinfo"
-                                    games={this.state.games}
-                                />
-                            </Router>
-                            <Footer />
                         </div>
                     </div>
-                </div>
-            </Fragment>
+                </Fragment>
+            </Router>
         );
     }
 }

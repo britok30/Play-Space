@@ -1,6 +1,6 @@
 import React from "react";
 import "./Sidebar.css";
-import { Link } from "@reach/router";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
     return (
@@ -75,7 +75,7 @@ const Sidebar = () => {
                             as a side project using React
                         </p>
                         <p>
-                            Copyright- 2019 - All Video Game information
+                            Copyright- 2020 - All Video Game information
                             obtained from RAWG
                         </p>
                     </li>

@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import "./Game.css";
 import { Card } from "react-bootstrap";
-import { Link } from "@reach/router";
 
 const Game = props => {
     const { name, cover, rating, date, slug, singleGame } = props;
