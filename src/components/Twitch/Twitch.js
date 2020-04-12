@@ -7,7 +7,7 @@ class Twitch extends Component {
     };
 
     loadTwitch = () => {
-        var url =
+        let url =
             "https://cors-anywhere.herokuapp.com/https://api.twitch.tv/helix/streams?game_id=33214";
     
 

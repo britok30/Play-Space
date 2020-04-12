@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import Navigation from "../Navigation/Navigation";
 import Sidebar from "../Sidebar/Sidebar";
 import Games from "../VideoGame/Games";
+import PopularGames from "../Popular/PopularGames";
 import Twitch from "../Twitch/Twitch";
 import Footer from "../Footer/Footer";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -51,6 +52,11 @@ export default class App extends Component {
                                                 exact
                                                 path="/twitch"
                                                 component={Twitch}
+                                            />
+                                            <Route
+                                                exact
+                                                path="/popular"
+                                                component={PopularGames}
                                             />
                                         </Switch>
                                     </div>

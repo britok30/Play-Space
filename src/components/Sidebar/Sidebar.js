@@ -23,8 +23,8 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link className="link-header" to="/">
-                            Top
+                        <Link className="link-header" to="/popular">
+                            Popular Games
                         </Link>
                     </li>
                     <li>
@@ -38,7 +38,7 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link className="link-header" to="/">
+                        <Link className="link-header" to="/twitch">
                             Twitch Live Streams
                         </Link>
                     </li>
