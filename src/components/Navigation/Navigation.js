@@ -1,10 +1,35 @@
 import React from "react";
 import { Navbar, Form, FormControl, Button } from "react-bootstrap";
+import axios from "axios";
 import "./Navigation.css";
 import { Link } from "react-router-dom";
 import Play from "../images/play.png";
 
 class Navigation extends React.Component {
+    state = {
+        searchTerm: "",
+        count: 39
+    };
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        const { searchTerm, count } = this.state;
+        axios
+            .get(
+                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?search=${searchTerm}&page_size=${count}`
+            )
+            .then((res) => {
+                console.log(res.data.results);
+                this.setState({ games: [...res.data.results] });
+            })
+            .catch((err) => console.log(err));
+    };
+
+    handleChange = (e) => {
+        this.setState({ searchTerm: e.target.value });
+    };
+
     render() {
         const { search, submit } = this.props;
 

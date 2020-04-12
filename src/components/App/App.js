@@ -2,21 +2,12 @@ import React, { Component, Fragment } from "react";
 import Navigation from "../Navigation/Navigation";
 import Sidebar from "../Sidebar/Sidebar";
 import Games from "../VideoGame/Games";
-import PopularGames from "../Popular/PopularGames";
+import Twitch from "../Twitch/Twitch";
 import Footer from "../Footer/Footer";
-import axios from "axios";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 export default class App extends Component {
-    state = {
-        searchTerm: "",
-        games: [],
-        id: "",
-        page: 1,
-        per: 39
-    };
-
     // loadGames = () => {
     //     const { per, page } = this.state;
     //     axios
@@ -31,53 +22,6 @@ export default class App extends Component {
     //         })
     //         .catch((err) => console.log(err));
     // };
-
-    fetchGames = () => {
-        const { per, page } = this.state;
-        this.setState({ page: this.state.page + 1 });
-        axios
-            .get(
-                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?page=${page}&page_size=${per}`
-            )
-            .then((res) => {
-                console.log(res.data.results);
-                this.setState({
-                    games: this.state.games.concat(res.data.results).sort(this.randomize),
-                });
-            });
-    };
-
-    randomize = (a) => {
-        return Math.random() - 0.5;
-    };
-
-    componentDidMount = () => {
-        this.fetchGames();
-    };
-
-    // --------------------------------------------------------
-    // EVENT HANDLERS
-
-    handleSubmit = (e) => {
-        e.preventDefault();
-
-        const { searchTerm, count } = this.state;
-        axios
-            .get(
-                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?search=${searchTerm}&page_size=${count}`
-            )
-            .then((res) => {
-                console.log(res.data.results);
-                this.setState({ games: [...res.data.results] });
-            })
-            .catch((err) => console.log(err));
-    };
-
-    handleChange = (e) => {
-        this.setState({ searchTerm: e.target.value });
-    };
-
-    // --------------------------------------------------------
 
     render() {
         return (
@@ -98,17 +42,16 @@ export default class App extends Component {
                                 <div className="col-md-10">
                                     <div className="container-fluid">
                                         <Switch>
-                                            <Games
-                                                games={this.state.games}
-                                                fetchGames={this.fetchGames}
-                                            />
-                                            {/* <Route
+                                            <Route
                                                 exact
                                                 path="/"
                                                 component={Games}
-                                                games={this.state.games}
-
-                                            /> */}
+                                            />
+                                            <Route
+                                                exact
+                                                path="/twitch"
+                                                component={Twitch}
+                                            />
                                         </Switch>
                                     </div>
                                 </div>

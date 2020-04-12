@@ -37,6 +37,11 @@ const Sidebar = () => {
                             Genres
                         </Link>
                     </li>
+                    <li>
+                        <Link className="link-header" to="/">
+                            Twitch Live Streams
+                        </Link>
+                    </li>
                     <li className="last-child">
                         <p>Made by Kelvin Brito</p>
                         <p>
