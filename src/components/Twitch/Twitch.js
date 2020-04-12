@@ -14,7 +14,7 @@ class Twitch extends Component {
         axios
             .get(url, {
                 headers: {
-                    "Client-ID": process.env.REACT_APP_CLIENT_ID,
+                    "Client-ID": `${process.env.REACT_APP_CLIENT_ID}`,
                 },
             })
             .then((res) => {

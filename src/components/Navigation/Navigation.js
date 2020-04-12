@@ -1,19 +1,19 @@
 import React from "react";
-import { Navbar, Form, FormControl, Button } from "react-bootstrap";
-import axios from "axios";
-import "./Navigation.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 import Play from "../images/play.png";
+import "./Navigation.css";
 
 class Navigation extends React.Component {
     state = {
+        games: [],
         searchTerm: "",
-        count: 39
+        count: 39,
     };
 
     handleSubmit = (e) => {
         e.preventDefault();
-
         const { searchTerm, count } = this.state;
         axios
             .get(
@@ -31,12 +31,10 @@ class Navigation extends React.Component {
     };
 
     render() {
-        const { search, submit } = this.props;
-
         return (
             <div>
-                <Navbar className="navbar navbar-dark" expand="lg">
-                    <Link to="/" className="navbar-brand">
+                <nav className="navbar navbar-dark justify-content-between">
+                    <Link className="navbar-brand" to="/">
                         <img
                             src={Play}
                             style={{ width: 100, height: 78 }}
@@ -44,30 +42,66 @@ class Navigation extends React.Component {
                         />
                         <p className="brand-name">Play Space</p>
                     </Link>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Form inline className="form" onSubmit={submit}>
-                            <FormControl
-                                type="text"
-                                placeholder="Search Games"
-                                className="mr-sm-2 main-input"
-                                style={{ fontSize: "1.5rem", fontWeight: 400 }}
-                                onChange={search}
-                            />
-                            <Button
-                                className="main-btn"
-                                variant="dark"
-                                type="submit"
-                                onSubmit={submit}
-                            >
-                                Search
-                            </Button>
-                        </Form>
-                    </Navbar.Collapse>
-                </Navbar>
+                    <form
+                        className="form form-inline"
+                        onSubmit={this.handleSubmit}
+                    >
+                        <input
+                            className="form-control mr-sm-2 main-input"
+                            type="search"
+                            placeholder="Search Games"
+                            style={{ fontSize: "1.5rem", fontWeight: 400 }}
+                            onChange={this.handleChange}
+                        />
+                        <button
+                            className="btn btn-dark main-btn my-2 my-sm-0"
+                            type="submit"
+                            onSubmit={this.handleSubmit}
+                        >
+                            Search
+                        </button>
+                    </form>
+                </nav>
             </div>
         );
     }
 }
 
 export default Navigation;
+
+/* <Fragment>
+    <form className="form" onSubmit={this.onSubmit}>
+        <div className="form-group">
+            <input
+                className="search"
+                type="text"
+                name="name"
+                value={this.state.searchTerm}
+                placeholder="Search News"
+                onChange={this.onChange}
+            />
+        </div>
+
+        <div className="row">
+            <h2 className="sub-heading top-lead">Search</h2>
+        </div>
+        <div className="row">
+            {loading ? (
+                <h1>Please enter your search.</h1>
+            ) : (
+                news.map((article, index) => {
+                    return (
+                        <Search
+                            key={index}
+                            title={article.title}
+                            link={article.url}
+                            img={article.urlToImage}
+                            desc={article.description}
+                            source={article.source.name}
+                        />
+                    );
+                })
+            )}
+        </div>
+    </form>
+</Fragment>; */

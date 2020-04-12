@@ -41,7 +41,6 @@ class Games extends Component {
 
         return (
             <Fragment>
-                <h1 className="lead-head">PlaySpace</h1>
                 <InfiniteScroll
                     className="row"
                     dataLength={games.length}

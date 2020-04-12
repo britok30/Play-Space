@@ -30,10 +30,7 @@ export default class App extends Component {
                 <Fragment>
                     <div className="app">
                         <div className="container-fluid">
-                            <Navigation
-                                search={this.handleChange}
-                                submit={this.handleSubmit}
-                            />
+                            <Navigation />
                         </div>
                         <div className="container-fluid">
                             <div className="row main-row">
@@ -41,6 +38,7 @@ export default class App extends Component {
                                     <Sidebar />
                                 </div>
                                 <div className="col-md-10">
+                                    <h1 className="lead-head">PlaySpace</h1>
                                     <div className="container-fluid">
                                         <Switch>
                                             <Route

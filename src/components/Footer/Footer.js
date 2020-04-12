@@ -15,7 +15,7 @@ const Footer = () => {
             Not intended for commercial use. Made this for fun as a side project
             using React
           </p>
-          <p>Copyright- 2019 - All Video Game information obtained from RAWG</p>
+          <p>Copyright- 2020 - All Video Game information obtained from RAWG</p>
         </div>
       </div>
     </div>
