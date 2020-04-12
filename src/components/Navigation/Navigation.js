@@ -1,11 +1,11 @@
-import React from "react";
+import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 import Play from "../images/play.png";
 import "./Navigation.css";
 
-class Navigation extends React.Component {
+class Navigation extends Component {
     state = {
         games: [],
         searchTerm: "",
