@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -105,3 +105,14 @@ export default Navigation;
         </div>
     </form>
 </Fragment>; */
+
+// {
+//     this.state.results.length > 0 && (
+//         <Redirect
+//             to={{
+//                 pathname: "/results",
+//                 state: { results: this.state.results },
+//             }}
+//         />
+//     );
+// }

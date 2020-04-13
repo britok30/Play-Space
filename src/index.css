@@ -19,3 +19,54 @@ body {
 ::-webkit-scrollbar {
     display: none;
 }
+
+.intro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    color: #fff;
+    font-size: 4rem;
+}
+
+.overlay,
+.overlay-2,
+.overlay-3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+}
+
+.overlay {
+    z-index: 1;
+    background: linear-gradient(
+            to right bottom,
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+        ),
+        url(../src/components/images/finalfantasy.jpg) no-repeat center
+            center/cover fixed !important;
+}
+
+.overlay-2 {
+    z-index: 2;
+    background: linear-gradient(
+            to right bottom,
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+        ),
+        url(../src/components/images/gow1.jpg) no-repeat center center/cover
+            fixed !important;
+}
+
+.overlay-3 {
+    z-index: 3;
+    background: linear-gradient(
+            to right bottom,
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+        ),
+        url(../src/components/images/hzd.jpg) no-repeat center center/cover
+            fixed !important;
+}

@@ -9,21 +9,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 export default class App extends Component {
-    // loadGames = () => {
-    //     const { per, page } = this.state;
-    //     axios
-    //         .get(
-    //             `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?page=${page}&page_size=${per}`
-    //         )
-    //         .then((res) => {
-    //             console.log(res.data.results);
-    //             this.setState({
-    //                 games: res.data.results,
-    //             });
-    //         })
-    //         .catch((err) => console.log(err));
-    // };
-
+    componentDidMount() {
+        window.addEventListener("beforeunload", function () {
+            window.scrollTo(0, 0);
+        });
+    }
     render() {
         return (
             <Router>
@@ -46,6 +36,11 @@ export default class App extends Component {
                                                 path="/"
                                                 component={Games}
                                             />
+                                            {/* <Route
+                                                exact
+                                                path="/search"
+                                                component={Search}
+                                            /> */}
                                             <Route
                                                 exact
                                                 path="/twitch"
@@ -68,3 +63,18 @@ export default class App extends Component {
         );
     }
 }
+
+// loadGames = () => {
+//     const { per, page } = this.state;
+//     axios
+//         .get(
+//             `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?page=${page}&page_size=${per}`
+//         )
+//         .then((res) => {
+//             console.log(res.data.results);
+//             this.setState({
+//                 games: res.data.results,
+//             });
+//         })
+//         .catch((err) => console.log(err));
+// };

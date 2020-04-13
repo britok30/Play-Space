@@ -5,7 +5,7 @@ const Game = (props) => {
     const { name, cover, rating, date, slug, meta } = props;
     return (
         <Fragment>
-            <div class="card game-card">
+            <div className="card game-card">
                 <img
                     className="card-img-top game-cover"
                     src={cover}
