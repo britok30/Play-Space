@@ -7,7 +7,7 @@ import "./Navigation.css";
 
 class Navigation extends Component {
     state = {
-        games: [],
+        searchGames: [],
         searchTerm: "",
         count: 39,
     };
@@ -21,7 +21,7 @@ class Navigation extends Component {
             )
             .then((res) => {
                 console.log(res.data.results);
-                this.setState({ games: [...res.data.results] });
+                this.setState({ searchGames: [...res.data.results] });
             })
             .catch((err) => console.log(err));
     };

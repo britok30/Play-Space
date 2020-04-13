@@ -46,11 +46,6 @@ export default class App extends Component {
                                                 path="/twitch"
                                                 component={Twitch}
                                             />
-                                            <Route
-                                                exact
-                                                path="/popular"
-                                                component={PopularGames}
-                                            />
                                         </Switch>
                                     </div>
                                 </div>
