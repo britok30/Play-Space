@@ -1,26 +1,13 @@
-.lead-head {
-    color: #fff;
-    font-size: 10rem;
-    text-align: center;
-    letter-spacing: 10px;
-    font-weight: 600;
-}
-
-.card-columns {
-    display: inline-block;
-}
 
 .game-card {
-    width: 33rem !important;
     background-color: #202020 !important;
     color: #fff;
     border-radius: 20px !important;
-    margin: 3rem auto;
     transition: all 1.3s;
 }
 
 .game-card:hover {
-    transform: scale(1.03);
+    transform: scale(1.01);
 }
 
 .game-row {

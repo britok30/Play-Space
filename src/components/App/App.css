@@ -1,21 +1,34 @@
 .main-row {
-  margin-top: 8rem;
+    margin-top: 8rem;
 }
 
 .load-btn {
-  font-size: 2.5rem;
-  margin: 5rem auto;
+    font-size: 2.5rem;
+    margin: 5rem auto;
+}
 
+.lead-head {
+    color: #fff;
+    font-size: 10rem;
+    text-align: center;
+    letter-spacing: 10px;
+    font-weight: 600;
+    margin-bottom: 3rem;
 }
 
 .app {
-   background: linear-gradient(to right bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(../images/kh3.png) no-repeat center center/cover fixed !important;
-   width: 100%;
-   height: 200%;
+    background: linear-gradient(
+            to right bottom,
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+        ),
+        url(../images/kh3.png) no-repeat center center/cover fixed !important;
+    width: 100%;
+    height: 200%;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 1024px) {
-  .app {
-    background: #151515 !important;
-  }
+    .app {
+        background: #151515 !important;
+    }
 }
