@@ -42,7 +42,7 @@ class Games extends Component {
         return (
             <Fragment>
                 <InfiniteScroll
-                    className="row"
+                    className="card-columns"
                     dataLength={games.length}
                     next={this.fetchGames}
                     hasMore={true}

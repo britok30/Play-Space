@@ -6,6 +6,7 @@
 
 html {
     font-size: 62.5%;
+    background: #222;
 }
 
 body {
@@ -22,7 +23,7 @@ body {
 
 .intro {
     position: absolute;
-    top: 50%;
+    top: 43%;
     left: 40%;
     text-align: center;
     color: #fff;

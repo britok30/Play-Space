@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import "./Game.css";
 
 const Game = (props) => {
-    const { name, cover, rating, date, slug, meta } = props;
+    const { name, cover, rating, date, slug, meta, clip } = props;
     return (
         <Fragment>
             <div className="card game-card">

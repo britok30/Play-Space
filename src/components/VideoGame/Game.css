@@ -6,6 +6,10 @@
     font-weight: 600;
 }
 
+.card-columns {
+    display: inline-block;
+}
+
 .game-card {
     width: 33rem !important;
     background-color: #202020 !important;
