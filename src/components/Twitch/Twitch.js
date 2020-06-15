@@ -30,7 +30,9 @@ class Twitch extends Component {
         return this.loadTwitch;
     }
     render() {
-        return <div>Hi</div>;
+        return <div>
+            <h1 style={{padding: "150px 0 150px 0"}}className="lead-head">COMING SOON</h1>
+        </div>;
     }
 }
 

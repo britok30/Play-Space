@@ -18,20 +18,17 @@ class Navigation extends Component {
         const { searchTerm, count } = this.state;
 
         await axios
-            .get(
-                `/api/games?search=${searchTerm}&page_size=${count}`,
-                {
-                    headers: {
-                        "Access-Control-Allow-Origin": "*",
-                    },
-                }
-            )
+            .get(`/api/games?search=${searchTerm}&page_size=${count}`, {
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                },
+            })
             .then((res) => {
                 console.log(res.data.results);
                 this.setState({ games: res.data.results });
             })
             .catch((err) => console.log(err));
-        this.props.history.push("/dashboard");
+        this.props.history.push("/search");
     };
 
     handleChange = (e) => {
@@ -82,9 +79,14 @@ class Navigation extends Component {
                     </form>
                 </nav>
                 <div className="container">
+                    {games.length > 0 ? (
+                        <h1 className="lead-head">Search Results</h1>
+                    ) : (
+                        ""
+                    )}
                     <div className="card-columns">
                         {!games ? (
-                            <h1>No games found.</h1>
+                            <h1>Loading...</h1>
                         ) : (
                             games.map((game) => {
                                 return (

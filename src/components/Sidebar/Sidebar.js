@@ -13,32 +13,17 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link className="link-header" to="/">
-                            Reviews
+                        <Link className="link-header" to="/lastmonth">
+                            Last Month Releases
                         </Link>
                     </li>
                     <li>
-                        <Link className="link-header" to="/">
-                            New Releases
-                        </Link>
-                    </li>
-                    <li>
-                        <Link className="link-header" to="/">
+                        <Link className="link-header" to="/popular">
                             Popular Games
                         </Link>
                     </li>
                     <li>
-                        <Link className="link-header" to="/">
-                            Platforms
-                        </Link>
-                    </li>
-                    <li>
-                        <Link className="link-header" to="/">
-                            Genres
-                        </Link>
-                    </li>
-                    <li>
-                        <Link className="link-header" to="/">
+                        <Link className="link-header" to="/twitch">
                             Twitch Live Streams
                         </Link>
                     </li>
