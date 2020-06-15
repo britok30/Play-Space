@@ -50,7 +50,7 @@ class Games extends Component {
                     dataLength={games.length}
                     next={this.fetchGames}
                     hasMore={true}
-                    loader={<img className="spinner" src={spinner} />}
+                    loader={<img className="spinner" src={spinner} alt="spinner"/>}
                 >
                     {games.map((game) => {
                         return (
