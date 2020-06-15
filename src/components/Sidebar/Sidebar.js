@@ -23,7 +23,7 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link className="link-header" to="/popular">
+                        <Link className="link-header" to="/">
                             Popular Games
                         </Link>
                     </li>
@@ -38,24 +38,9 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link className="link-header" to="/twitch">
+                        <Link className="link-header" to="/">
                             Twitch Live Streams
                         </Link>
-                    </li>
-                    <li className="last-child">
-                        <p>Made by Kelvin Brito</p>
-                        <p>
-                            Video Game data from RAWG API
-                            <a href="https://rawg.io/apidocs">-Website: RAWG</a>
-                        </p>
-                        <p>
-                            Not intended for commercial use. Made this for fun
-                            as a side project using React
-                        </p>
-                        <p>
-                            Copyright- 2020 - All Video Game information
-                            obtained from RAWG
-                        </p>
                     </li>
                 </ul>
             </nav>

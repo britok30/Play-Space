@@ -10,11 +10,11 @@ class Games extends Component {
         page: 1,
         per: 39,
     };
-    
-    fetchGames = () => {
+
+    fetchGames = async () => {
         const { per, page } = this.state;
         this.setState({ page: this.state.page + 1 });
-        axios
+        await axios
             .get(
                 `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?page=${page}&page_size=${per}`
             )
@@ -32,8 +32,8 @@ class Games extends Component {
         return Math.random() - 0.5;
     };
 
-    componentDidMount = () => {
-        this.fetchGames();
+    componentDidMount = async () => {
+        await this.fetchGames();
     };
 
     render() {
@@ -41,6 +41,7 @@ class Games extends Component {
 
         return (
             <Fragment>
+                <h1 className="lead-head">PlaySpace</h1>
                 <InfiniteScroll
                     className="card-columns"
                     dataLength={games.length}

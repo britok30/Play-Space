@@ -1,40 +1,53 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import SingleGame from "../VideoGame/SingleGame";
 import axios from "axios";
-
+import { withRouter } from "react-router-dom";
 import Play from "../images/play.png";
 import "./Navigation.css";
 
 class Navigation extends Component {
     state = {
-        searchGames: [],
+        games: [],
         searchTerm: "",
         count: 39,
     };
 
-    handleSubmit = (e) => {
+    handleSubmit = async (e) => {
         e.preventDefault();
         const { searchTerm, count } = this.state;
-        axios
+
+       await axios
             .get(
                 `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?search=${searchTerm}&page_size=${count}`
             )
             .then((res) => {
                 console.log(res.data.results);
-                this.setState({ searchGames: [...res.data.results] });
+                this.setState({ games: res.data.results });
             })
             .catch((err) => console.log(err));
+        this.props.history.push("/dashboard");
     };
 
     handleChange = (e) => {
         this.setState({ searchTerm: e.target.value });
     };
 
+    clearResults = () => {
+        this.setState({ games: [] });
+    };
+
     render() {
+        const { games } = this.state;
+
         return (
             <div>
                 <nav className="navbar navbar-dark justify-content-between">
-                    <Link className="navbar-brand" to="/">
+                    <Link
+                        className="navbar-brand"
+                        to="/"
+                        onClick={this.clearResults}
+                    >
                         <img
                             src={Play}
                             style={{ width: 100, height: 78 }}
@@ -50,6 +63,7 @@ class Navigation extends Component {
                             className="form-control mr-sm-2 main-input"
                             type="search"
                             placeholder="Search Games"
+                            value={this.state.searchTerm}
                             style={{ fontSize: "1.5rem", fontWeight: 400 }}
                             onChange={this.handleChange}
                         />
@@ -62,57 +76,31 @@ class Navigation extends Component {
                         </button>
                     </form>
                 </nav>
+                <div className="container">
+                    <div className="card-columns">
+                        {!games ? (
+                            <h1>No games found.</h1>
+                        ) : (
+                            games.map((game) => {
+                                return (
+                                    <SingleGame
+                                        key={game.id}
+                                        name={game.name}
+                                        description={game.description}
+                                        cover={game.background_image}
+                                        rating={game.rating}
+                                        meta={game.metacritic}
+                                        date={game.released}
+                                        slug={game.slug}
+                                    />
+                                );
+                            })
+                        )}
+                    </div>
+                </div>
             </div>
         );
     }
 }
 
-export default Navigation;
-
-/* <Fragment>
-    <form className="form" onSubmit={this.onSubmit}>
-        <div className="form-group">
-            <input
-                className="search"
-                type="text"
-                name="name"
-                value={this.state.searchTerm}
-                placeholder="Search News"
-                onChange={this.onChange}
-            />
-        </div>
-
-        <div className="row">
-            <h2 className="sub-heading top-lead">Search</h2>
-        </div>
-        <div className="row">
-            {loading ? (
-                <h1>Please enter your search.</h1>
-            ) : (
-                news.map((article, index) => {
-                    return (
-                        <Search
-                            key={index}
-                            title={article.title}
-                            link={article.url}
-                            img={article.urlToImage}
-                            desc={article.description}
-                            source={article.source.name}
-                        />
-                    );
-                })
-            )}
-        </div>
-    </form>
-</Fragment>; */
-
-// {
-//     this.state.results.length > 0 && (
-//         <Redirect
-//             to={{
-//                 pathname: "/results",
-//                 state: { results: this.state.results },
-//             }}
-//         />
-//     );
-// }
+export default withRouter(Navigation);
