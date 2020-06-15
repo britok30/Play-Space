@@ -18,11 +18,14 @@ class Navigation extends Component {
         const { searchTerm, count } = this.state;
 
         await axios
-            .get(`/api/games?search=${searchTerm}&page_size=${count}`, {
-                headers: {
-                    "Access-Control-Allow-Origin": "*",
-                },
-            })
+            .get(
+                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?search=${searchTerm}&page_size=${count}`,
+                {
+                    headers: {
+                        "Access-Control-Allow-Origin": "*",
+                    },
+                }
+            )
             .then((res) => {
                 console.log(res.data.results);
                 this.setState({ games: res.data.results });

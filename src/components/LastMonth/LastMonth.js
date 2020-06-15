@@ -16,11 +16,14 @@ class LastMonthGames extends Component {
         const { from, to, per, platforms } = this.state;
         this.setState({ page: this.state.page + 1 });
         await axios
-            .get(`api/games?dates=${from},${to}&platforms=${platforms}&page_size=${per}`, {
-                headers: {
-                    "Access-Control-Allow-Origin": "*",
-                },
-            })
+            .get(
+                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?dates=${from},${to}&platforms=${platforms}&page_size=${per}`,
+                {
+                    headers: {
+                        "Access-Control-Allow-Origin": "*",
+                    },
+                }
+            )
             .then((res) => {
                 console.log(res.data.results);
                 this.setState({

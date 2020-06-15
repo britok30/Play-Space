@@ -16,11 +16,14 @@ class Games extends Component {
         const { per, page } = this.state;
         this.setState({ page: this.state.page + 1 });
         await axios
-            .get(`/api/games?page=${page}&page_size=${per}`, {
-                headers: {
-                    "Access-Control-Allow-Origin": "*",
-                },
-            })
+            .get(
+                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?page=${page}&page_size=${per}`,
+                {
+                    headers: {
+                        "Access-Control-Allow-Origin": "*",
+                    },
+                }
+            )
             .then((res) => {
                 console.log(res.data.results);
                 this.setState({

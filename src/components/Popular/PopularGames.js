@@ -16,7 +16,7 @@ class PopularGames extends Component {
         this.setState({ page: this.state.page + 1 });
         await axios
             .get(
-                `api/games?dates=${from},${to}&ordering=-added&page_size=${per}`,
+                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?dates=${from},${to}&ordering=-added&page_size=${per}`,
                 {
                     headers: {
                         "Access-Control-Allow-Origin": "*",

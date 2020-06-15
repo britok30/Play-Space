@@ -1,7 +1,6 @@
 {
     "name": "igdb",
     "version": "0.1.0",
-    "proxy": "https://rawg.io",
     "private": true,
     "dependencies": {
         "acorn": "^7.1.1",
