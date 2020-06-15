@@ -1,9 +1,14 @@
-
 .game-card {
     background-color: #202020 !important;
     color: #fff;
     border-radius: 20px !important;
     transition: all 1.3s;
+}
+
+.spinner {
+    width: 75px;
+    display: block;
+    margin: auto;
 }
 
 .game-card:hover {

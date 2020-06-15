@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import axios from "axios";
 import SingleGame from "./SingleGame";
 import "./Game.css";
+import spinner from "../images/Spinner-1s-200px.gif"
 import InfiniteScroll from "react-infinite-scroll-component";
 
 class Games extends Component {
@@ -13,7 +14,6 @@ class Games extends Component {
 
     fetchGames = async () => {
         const { per, page } = this.state;
-        this.setState({ page: this.state.page + 1 });
         await axios
             .get(
                 `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?page=${page}&page_size=${per}`
@@ -48,9 +48,11 @@ class Games extends Component {
                     next={this.fetchGames}
                     hasMore={true}
                     loader={
-                        <h1 style={{ fontSize: "5rem", color: "#fff" }}>
-                            Loading...
-                        </h1>
+                        <img
+                            className="spinner"
+                            src={spinner}
+                            alt="game-cover"
+                        />
                     }
                 >
                     {games.map((game) => {
