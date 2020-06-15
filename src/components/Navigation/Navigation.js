@@ -17,9 +17,14 @@ class Navigation extends Component {
         e.preventDefault();
         const { searchTerm, count } = this.state;
 
-       await axios
+        await axios
             .get(
-                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?search=${searchTerm}&page_size=${count}`
+                `/api/games?search=${searchTerm}&page_size=${count}`,
+                {
+                    headers: {
+                        "Access-Control-Allow-Origin": "*",
+                    },
+                }
             )
             .then((res) => {
                 console.log(res.data.results);
