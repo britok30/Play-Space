@@ -11,8 +11,10 @@ import LastMonthGames from "../LastMonth/LastMonth";
 
 export default class App extends Component {
     componentDidMount() {
-        window.addEventListener("beforeunload", function () {
-            window.scrollTo(0, 0);
+        window.addEventListener("onload", function () {
+            setTimeout(function () {
+                window.scrollTo(0, 0);
+            }, 100);
         });
     }
     render() {
