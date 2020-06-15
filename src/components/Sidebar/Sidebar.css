@@ -16,6 +16,11 @@
 
 ul {
     padding: 2.5rem 0 2.5rem 0;
+    justify-content: center;
+    display: flex;
+}
+li {
+    padding: 3rem;
 }
 
 a {

@@ -22,14 +22,10 @@ export default class App extends Component {
                     <div className="app">
                         <div className="container-fluid">
                             <Navigation />
-                        </div>
-                        <div className="container-fluid">
+                            <Route exact path ="/" component={Sidebar}/>
                             <div className="row main-row">
-                                <div className="col-md-2 col-lg-2 col-sm-2">
-                                    <Route exact path="/" component={Sidebar} />
-                                </div>
-                                <div className="col-md-10 col-lg-10 col-sm-10">
-                                    <div className="container-fluid">
+                                <div className="col-md-12 col-lg-12 col-sm-12">
+                                    <div className="container">
                                         <Switch>
                                             <Route
                                                 exact
@@ -48,7 +44,7 @@ export default class App extends Component {
                                             />
                                             <Route
                                                 exact
-                                                path="/tw"
+                                                path="/twitch"
                                                 component={Twitch}
                                             />
                                         </Switch>

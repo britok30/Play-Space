@@ -35,24 +35,31 @@
         <div class="overlay"></div>
         <div class="overlay-2"></div>
         <div class="overlay-3"></div>
+        <div class="overlay-4"></div>
         <script>
             gsap.to(".overlay", 2, {
-                delay: 3,
+                delay: 4,
                 top: "-100%",
                 ease: Expo.easeInOut,
             });
 
             gsap.to(".overlay-2", 2, {
-                delay: 2,
+                delay: 3,
                 top: "-100%",
                 ease: Expo.easeInOut,
             });
 
             gsap.to(".overlay-3", 2, {
-                delay: 1,
+                delay: 2,
                 top: "-100%",
                 ease: Expo.easeInOut,
             });
+
+            gsap.to(".overlay-4", 2, {
+                    delay: 1,
+                    top: "-100%",
+                    ease: Expo.easeInOut,
+                });
         </script>
     </body>
 </html>

@@ -22,7 +22,7 @@ body {
 }
 
 .main-row {
-    margin-top: 8rem;
+    margin-top: 3rem;
 }
 
 .load-btn {
@@ -47,8 +47,8 @@ body {
         ),
         url(../images/kh3.png) no-repeat center center/cover fixed !important;
     width: 100%;
-    height: 200%;
-    padding: 0 0 250px 0;
+    height: 100%;
+    padding: 10px 0 250px 0;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 1024px) {
