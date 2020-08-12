@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SingleGame from '../VideoGame/SingleGame';
 import axios from 'axios';
 import { Link, withRouter, useHistory } from 'react-router-dom';
+import { Fade } from 'react-reveal';
 
 import Play from '../images/play.png';
 import './Navigation.css';
@@ -9,7 +10,7 @@ import './Navigation.css';
 const Navigation = () => {
     const [games, setGames] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
-    const [count, setCount] = useState(39);
+    const [count] = useState(39);
 
     let history = useHistory();
 
@@ -39,16 +40,18 @@ const Navigation = () => {
 
     const renderGames = games.map((game) => {
         return (
-            <SingleGame
-                key={game.id}
-                name={game.name}
-                description={game.description}
-                cover={game.background_image}
-                rating={game.rating}
-                meta={game.metacritic}
-                date={game.released}
-                slug={game.slug}
-            />
+            <Fade bottom duration={3000} distance={'1rem'}>
+                <SingleGame
+                    key={game.id}
+                    name={game.name}
+                    description={game.description}
+                    cover={game.background_image}
+                    rating={game.rating}
+                    meta={game.metacritic}
+                    date={game.released}
+                    slug={game.slug}
+                />
+            </Fade>
         );
     });
 

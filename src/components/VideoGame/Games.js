@@ -20,8 +20,11 @@ const Games = () => {
 
         axios
             .get(
-                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?dates=${from},${to}&ordering=-added&page_size=${postPerPage}`
-            )
+                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?dates=${from},${to}&ordering=-added&page_size=${postPerPage}`, {
+                    headers: {
+                        'Access-Control-Allow-Origin': '*'
+                    }
+                })
             .then((res) => {
                 console.log(res.data.results);
                 setGames(games.concat(res.data.results).sort(randomize));
@@ -51,7 +54,10 @@ const Games = () => {
 
     return (
         <div>
-            <h1 className="lead-head">PlaySpace</h1>
+            <Fade bottom cascade duration={3000} distance={'100px'}>
+                <h1 className="lead-head">PlaySpace</h1>
+            </Fade>
+
             <div className="card-columns">{renderGames}</div>
         </div>
     );
