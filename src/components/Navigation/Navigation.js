@@ -23,6 +23,10 @@ const Navigation = () => {
                 {
                     headers: {
                         'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Methods':
+                            'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                        'Access-Control-Allow-Headers':
+                            'Origin, Content-Type, X-Auth-Token',
                     },
                 }
             )
@@ -40,7 +44,7 @@ const Navigation = () => {
 
     const renderGames = games.map((game) => {
         return (
-            <Fade bottom duration={3000} distance={'1rem'}>
+            <Fade key={game.id} bottom duration={3000} distance={'1rem'}>
                 <SingleGame
                     key={game.id}
                     name={game.name}

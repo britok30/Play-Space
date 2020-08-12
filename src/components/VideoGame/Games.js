@@ -20,11 +20,17 @@ const Games = () => {
 
         axios
             .get(
-                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?dates=${from},${to}&ordering=-added&page_size=${postPerPage}`, {
+                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?dates=${from},${to}&ordering=-added&page_size=${postPerPage}`,
+                {
                     headers: {
-                        'Access-Control-Allow-Origin': '*'
-                    }
-                })
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Methods':
+                            'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                        'Access-Control-Allow-Headers':
+                            'Origin, Content-Type, X-Auth-Token',
+                    },
+                }
+            )
             .then((res) => {
                 console.log(res.data.results);
                 setGames(games.concat(res.data.results).sort(randomize));
@@ -37,7 +43,7 @@ const Games = () => {
 
     const renderGames = games.map((game) => {
         return (
-            <Fade bottom duration={3000} distance={'1rem'}>
+            <Fade key={game.id} bottom duration={3000} distance={'1rem'}>
                 <SingleGame
                     key={game.id}
                     name={game.name}
