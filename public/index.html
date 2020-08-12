@@ -32,42 +32,5 @@
     <body class="overlay-open">
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root"></div>
-        <div class="overlay"></div>
-        <div class="overlay-2"></div>
-        <div class="overlay-3"></div>
-        <div class="overlay-4"></div>
-        <script>
-            gsap.to(".overlay", 2, {
-                delay: 4,
-                top: "-100%",
-                ease: Expo.easeInOut,
-            });
-
-            gsap.to(".overlay-2", 2, {
-                delay: 3,
-                top: "-100%",
-                ease: Expo.easeInOut,
-            });
-
-            gsap.to(".overlay-3", 2, {
-                delay: 2,
-                top: "-100%",
-                ease: Expo.easeInOut,
-            });
-
-            gsap.to(".overlay-4", 2, {
-                delay: 1,
-                top: "-100%",
-                ease: Expo.easeInOut,
-            });
-
-            setTimeout(function () {
-                document.body.className = document.body.className.replace(
-                    "overlay-open",
-                    ""
-                );
-            }, 5525);
-
-        </script>
     </body>
 </html>
