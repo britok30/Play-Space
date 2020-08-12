@@ -10,7 +10,7 @@ html {
 }
 
 body {
-    font-family: "Source Sans Pro", sans-serif !important;
+    font-family: 'Source Sans Pro', sans-serif !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     height: 100%;

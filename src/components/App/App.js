@@ -10,9 +10,7 @@ import LastMonthGames from '../LastMonth/LastMonth';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
-
 const App = () => {
-
     useEffect(() => {
         window.addEventListener('onload', function () {
             setTimeout(function () {
@@ -27,7 +25,6 @@ const App = () => {
                 <div className="container-fluid">
                     <Navigation />
                     <Route exact path="/" component={Sidebar} />
-
                     <div className="row main-row">
                         <div className="col-md-12 col-lg-12 col-sm-12">
                             <div className="container">
@@ -53,7 +50,6 @@ const App = () => {
                         </div>
                         <Footer />
                     </div>
-                    
                 </div>
             </div>
         </Router>

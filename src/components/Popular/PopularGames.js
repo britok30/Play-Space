@@ -7,7 +7,7 @@ const PopularGames = () => {
     const [games, setGames] = useState([]);
     const [from, setFrom] = useState('2019-01-01');
     const [to, setTo] = useState('2019-12-31');
-    const [per, setPer] = useState(25);
+    const [postPerPage, setPostPerPage] = useState(25);
 
     useEffect(() => {
         fetchGames();
@@ -16,7 +16,7 @@ const PopularGames = () => {
     const fetchGames = async () => {
         await axios
             .get(
-                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?dates=${from},${to}&ordering=-added&page_size=${per}`,
+                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?dates=${from},${to}&ordering=-added&page_size=${postPerPage}`,
                 {
                     headers: {
                         'Access-Control-Allow-Origin': '*',
