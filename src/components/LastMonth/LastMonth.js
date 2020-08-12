@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SingleGame from '../VideoGame/SingleGame';
+import { Fade } from 'react-reveal';
 import '../VideoGame/Game.css';
 
 const LastMonthGames = () => {
@@ -36,16 +37,18 @@ const LastMonthGames = () => {
 
     const renderGames = games.map((game) => {
         return (
-            <SingleGame
-                key={game.id}
-                name={game.name}
-                description={game.description}
-                cover={game.background_image}
-                rating={game.rating}
-                meta={game.metacritic}
-                date={game.released}
-                slug={game.slug}
-            />
+            <Fade bottom duration={3000} distance={'1rem'}>
+                <SingleGame
+                    key={game.id}
+                    name={game.name}
+                    description={game.description}
+                    cover={game.background_image}
+                    rating={game.rating}
+                    meta={game.metacritic}
+                    date={game.released}
+                    slug={game.slug}
+                />
+            </Fade>
         );
     });
 
