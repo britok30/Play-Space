@@ -5,30 +5,30 @@ import '../VideoGame/Game.css';
 
 const LastMonthGames = () => {
     const [games, setGames] = useState([]);
-    const [from, setFrom] = useState('2020-07-01');
-    const [to, setTo] = useState('2020-07-31');
-    const [postPerPage, setPostPerPage] = useState(25);
-    const [platforms, setPlatforms] = useState('18, 1, 7');
+    const [from] = useState('2020-07-01');
+    const [to] = useState('2020-07-31');
+    const [postPerPage] = useState(25);
+    const [platforms] = useState('18, 1, 7');
 
     useEffect(() => {
+        const fetchGames = async () => {
+            await axios
+                .get(
+                    `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?dates=${from},${to}&platforms=${platforms}&page_size=${postPerPage}`,
+                    {
+                        headers: {
+                            'Access-Control-Allow-Origin': '*',
+                        },
+                    }
+                )
+                .then((res) => {
+                    console.log(res.data.results);
+                    setGames(games.concat(res.data.results).sort(randomize));
+                });
+        };
+
         fetchGames();
     }, []);
-
-    const fetchGames = async () => {
-        await axios
-            .get(
-                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?dates=${from},${to}&platforms=${platforms}&page_size=${postPerPage}`,
-                {
-                    headers: {
-                        'Access-Control-Allow-Origin': '*',
-                    },
-                }
-            )
-            .then((res) => {
-                console.log(res.data.results);
-                setGames(games.concat(res.data.results).sort(randomize));
-            });
-    };
 
     const randomize = (a) => {
         return Math.random() - 0.5;
