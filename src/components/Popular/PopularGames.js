@@ -16,15 +16,9 @@ const PopularGames = () => {
     const fetchGames = async () => {
         await axios
             .get(
-                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?dates=${from},${to}&ordering=-added&page_size=${postPerPage}`,
-                {
-                    headers: {
-                        'Access-Control-Allow-Origin': '*',
-                    },
-                }
+                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?dates=${from},${to}&ordering=-added&page_size=${postPerPage}`
             )
             .then((res) => {
-                console.log(res.data.results);
                 setGames(games.concat(res.data.results).sort(randomize));
             });
     };
