@@ -4,7 +4,6 @@ import SingleGame from './SingleGame';
 import './Game.css';
 import spinner from '../images/Spinner-1s-200px.gif';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { Fade } from 'react-reveal';
 
 const Games = () => {
     const [games, setGames] = useState([]);
@@ -38,18 +37,16 @@ const Games = () => {
 
     const renderGames = games.map((game) => {
         return (
-            <Fade key={game.id} bottom duration={3000} distance={'1rem'}>
-                <SingleGame
-                    key={game.id}
-                    name={game.name}
-                    description={game.description}
-                    cover={game.background_image}
-                    rating={game.rating}
-                    meta={game.metacritic}
-                    date={game.released}
-                    slug={game.slug}
-                />
-            </Fade>
+            <SingleGame
+                key={game.id}
+                name={game.name}
+                description={game.description}
+                cover={game.background_image}
+                rating={game.rating}
+                meta={game.metacritic}
+                date={game.released}
+                slug={game.slug}
+            />
         );
     });
 
@@ -70,4 +67,3 @@ const Games = () => {
 };
 
 export default Games;
-
