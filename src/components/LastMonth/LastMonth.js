@@ -13,18 +13,20 @@ const LastMonthGames = () => {
 
     useEffect(() => {
         const fetchGames = async () => {
+            let config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods':
+                        'DELETE, POST, GET, OPTIONS',
+                    'Access-Control-Allow-Headers':
+                        'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
+                },
+            };
             await axios
                 .get(
                     `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?dates=${from},${to}&platforms=${platforms}&page_size=${postPerPage}`,
-                    {
-                        headers: {
-                            'Access-Control-Allow-Origin': '*',
-                            'Access-Control-Allow-Methods':
-                                'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-                            'Access-Control-Allow-Headers':
-                                'Origin, Content-Type, X-Auth-Token',
-                        },
-                    }
+                    config
                 )
                 .then((res) => {
                     console.log(res.data.results);
@@ -41,7 +43,7 @@ const LastMonthGames = () => {
 
     const renderGames = games.map((game) => {
         return (
-            <Fade key={game.id}  bottom duration={3000} distance={'1rem'}>
+            <Fade key={game.id} bottom duration={3000} distance={'1rem'}>
                 <SingleGame
                     key={game.id}
                     name={game.name}
