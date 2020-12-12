@@ -27,7 +27,7 @@
 }
 
 .main-input {
-    width: 90rem !important;
+    width: 50rem !important;
     border-radius: 10px;
     background: #333;
     padding: 20px;
@@ -47,8 +47,21 @@
     font-weight: 400;
 }
 
+.search-form {
+    display: flex;
+}
+
+.search-button {
+    margin-left: 10px;
+}
 @media (min-width: 320px) and (max-width: 480px) {
     .main-input {
         width: 325px !important;
     }
 }
+
+@media (max-width: 620px) {
+    .search-button {
+        display: none;
+    }
+} ;

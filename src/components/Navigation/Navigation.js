@@ -70,7 +70,7 @@ const Navigation = () => {
                     />
                     <p className="brand-name">Play Space</p>
                 </Link>
-                <form className="form form-inline" onSubmit={handleSubmit}>
+                <form className="search-form" onSubmit={handleSubmit}>
                     <input
                         className="form-control mr-sm-2 main-input"
                         type="search"
@@ -80,7 +80,7 @@ const Navigation = () => {
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
                     <button
-                        className="btn btn-dark main-btn my-2 my-sm-0"
+                        className="btn btn-dark main-btn my-2 my-sm-0 search-button"
                         type="submit"
                         onSubmit={handleSubmit}
                     >
