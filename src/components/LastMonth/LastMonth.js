@@ -13,23 +13,11 @@ const LastMonthGames = () => {
 
     useEffect(() => {
         const fetchGames = async () => {
-            let config = {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Methods':
-                        'DELETE, POST, GET, OPTIONS',
-                    'Access-Control-Allow-Headers':
-                        'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
-                },
-            };
             await axios
                 .get(
-                    `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?dates=${from},${to}&platforms=${platforms}&page_size=${postPerPage}`,
-                    config
+                    `https://rawg.io/api/games?dates=${from},${to}&platforms=${platforms}&page_size=${postPerPage}`
                 )
                 .then((res) => {
-                    console.log(res.data.results);
                     setGames(games.concat(res.data.results).sort(randomize));
                 });
         };
