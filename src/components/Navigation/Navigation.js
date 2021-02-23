@@ -19,19 +19,9 @@ const Navigation = () => {
 
         await axios
             .get(
-                `https://cors-anywhere.herokuapp.com/https://rawg.io/api/games?search=${searchTerm}&page_size=${count}`,
-                {
-                    headers: {
-                        'Access-Control-Allow-Origin': '*',
-                        'Access-Control-Allow-Methods':
-                            'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-                        'Access-Control-Allow-Headers':
-                            'Origin, Content-Type, X-Auth-Token',
-                    },
-                }
+                `https://rawg.io/api/games?search=${searchTerm}&page_size=${count}`
             )
             .then((res) => {
-                console.log(res.data.results);
                 setGames(res.data.results);
             })
             .catch((err) => console.log(err));
