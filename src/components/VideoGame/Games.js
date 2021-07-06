@@ -5,11 +5,14 @@ import './Game.css';
 import { Fade } from 'react-reveal';
 
 const Games = () => {
+    let dateObj = new Date();
+    let year = dateObj.getUTCFullYear();
+
     const [games, setGames] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [postPerPage] = useState(50);
-    const [from] = useState('2020-01-01');
-    const [to] = useState('2020-12-31');
+    const [from] = useState(`${year - 1}-01-01`);
+    const [to] = useState(`${year - 1}-12-31`);
 
     useEffect(() => {
         fetchGames();
@@ -17,9 +20,10 @@ const Games = () => {
 
     const fetchGames = () => {
         setCurrentPage(currentPage + 1);
+        const key = 'b6c3fd718009446aa547da3b07c97945';
         axios
             .get(
-                `https://rawg.io/api/games?dates=${from},${to}&ordering=-added&page_size=${postPerPage}`
+                `https://api.rawg.io/api/games?key=${key}&dates=${from},${to}&ordering=-added&page_size=${postPerPage}`
             )
             .then((res) => {
                 setGames(games.concat(res.data.results).sort(randomize));

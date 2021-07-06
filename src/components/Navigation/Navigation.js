@@ -16,10 +16,10 @@ const Navigation = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        const key = 'b6c3fd718009446aa547da3b07c97945';
         await axios
             .get(
-                `https://rawg.io/api/games?search=${searchTerm}&page_size=${count}`
+                `https://api.rawg.io/api/games?key=${key}&search=${searchTerm}&page_size=${count}`
             )
             .then((res) => {
                 setGames(res.data.results);

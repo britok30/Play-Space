@@ -5,9 +5,12 @@ import { Fade } from 'react-reveal';
 import '../VideoGame/Game.css';
 
 const PopularGames = () => {
+    let dateObj = new Date();
+    let year = dateObj.getUTCFullYear();
     const [games, setGames] = useState([]);
-    const [from] = useState('2019-01-01');
-    const [to] = useState('2019-12-31');
+
+    const [from] = useState(`${year - 1}-01-01`);
+    const [to] = useState(`${year - 1}-12-31`);
     const [postPerPage] = useState(25);
 
     useEffect(() => {
@@ -15,9 +18,10 @@ const PopularGames = () => {
     }, []);
 
     const fetchGames = async () => {
+        const key = 'b6c3fd718009446aa547da3b07c97945';
         await axios
             .get(
-                `https://rawg.io/api/games?dates=${from},${to}&ordering=-added&page_size=${postPerPage}`
+                `https://api.rawg.io/api/games?key=${key}&dates=${from},${to}&ordering=-added&page_size=${postPerPage}`
             )
             .then((res) => {
                 setGames(games.concat(res.data.results).sort(randomize));
@@ -47,7 +51,7 @@ const PopularGames = () => {
 
     return (
         <div>
-            <h1 className="lead-head">Popular Games of 2019</h1>
+            <h1 className="lead-head">Popular Games of {year - 1}</h1>
             <div className="card-columns">{renderGames}</div>
         </div>
     );

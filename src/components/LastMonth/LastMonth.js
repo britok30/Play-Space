@@ -5,17 +5,23 @@ import { Fade } from 'react-reveal';
 import '../VideoGame/Game.css';
 
 const LastMonthGames = () => {
+    let dateObj = new Date();
+    let month = dateObj.getUTCMonth() + 1;
+    let year = dateObj.getUTCFullYear();
+
     const [games, setGames] = useState([]);
-    const [from] = useState('2020-07-01');
-    const [to] = useState('2020-07-31');
+    const [from] = useState(`${year}-0${month - 1}-01`);
+    const [to] = useState(`${year}-0${month - 1}-30`);
     const [postPerPage] = useState(25);
     const [platforms] = useState('18, 1, 7');
 
     useEffect(() => {
         const fetchGames = async () => {
+            const key = 'b6c3fd718009446aa547da3b07c97945';
             await axios
+
                 .get(
-                    `https://rawg.io/api/games?dates=${from},${to}&platforms=${platforms}&page_size=${postPerPage}`
+                    `https://api.rawg.io/api/games?key=${key}&dates=${from},${to}&platforms=${platforms}&page_size=${postPerPage}`
                 )
                 .then((res) => {
                     setGames(games.concat(res.data.results).sort(randomize));
