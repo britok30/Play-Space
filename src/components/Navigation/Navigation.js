@@ -79,11 +79,7 @@ const Navigation = () => {
                 </form>
             </nav>
             <div className="container">
-                {games.length > 0 ? (
-                    <h1 className="lead-head">Search Results</h1>
-                ) : (
-                    ''
-                )}
+                {games.length > 0 ? <h1 className="lead-head">Results</h1> : ''}
                 <div className="card-columns">
                     {!games ? <h1>Loading...</h1> : renderGames}
                 </div>
