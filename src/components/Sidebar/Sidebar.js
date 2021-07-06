@@ -1,6 +1,6 @@
-import React from "react";
-import "./Sidebar.css";
-import { Link } from "react-router-dom";
+import React from 'react';
+import './Sidebar.css';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
     return (
@@ -23,8 +23,8 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link className="link-header" to="/twitch">
-                            Twitch Live Streams
+                        <Link className="link-header" to="/highrated">
+                            Highest Rated
                         </Link>
                     </li>
                 </ul>

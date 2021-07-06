@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import Navigation from '../Navigation/Navigation';
 import Sidebar from '../Sidebar/Sidebar';
 import Games from '../VideoGame/Games';
-import Twitch from '../Twitch/Twitch';
 import PopularGames from '../Popular/PopularGames';
 import Footer from '../Footer/Footer';
 import LastMonthGames from '../LastMonth/LastMonth';
+import HighRated from '../HighRated/HighRated';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
@@ -42,8 +42,8 @@ const App = () => {
                                     />
                                     <Route
                                         exact
-                                        path="/twitch"
-                                        component={Twitch}
+                                        path="/highrated"
+                                        component={HighRated}
                                     />
                                 </Switch>
                             </div>
