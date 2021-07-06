@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import SingleGame from './SingleGame';
+import Layout from '../Layout/Layout';
 import './Game.css';
-import { Fade } from 'react-reveal';
 
 const Games = () => {
     let dateObj = new Date();
@@ -34,42 +33,9 @@ const Games = () => {
         return Math.random() - 0.5;
     };
 
-    const renderGames = games.map((game) => {
-        return (
-            <Fade key={game.id} bottom duration={3000} distance={'1rem'}>
-                <SingleGame
-                    key={game.id}
-                    name={game.name}
-                    description={game.description}
-                    cover={game.background_image}
-                    rating={game.rating}
-                    meta={game.metacritic}
-                    date={game.released}
-                    slug={game.slug}
-                />
-            </Fade>
-        );
-    });
-
     return (
         <div>
-            <h1 className="lead-head">PlaySpace</h1>
-
-            <div className="card-columns">
-                {games.length === 0 ? (
-                    <h1
-                        style={{
-                            color: '#fff',
-                            fontSize: '40px',
-                            height: '100vh',
-                        }}
-                    >
-                        LOADING...
-                    </h1>
-                ) : (
-                    renderGames
-                )}
-            </div>
+            <Layout games={games} title="PlaySpace" />
         </div>
     );
 };
