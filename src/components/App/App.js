@@ -24,7 +24,7 @@ const App = () => {
             <div className="app">
                 <div className="container-fluid">
                     <Navigation />
-                    <Route exact path="/" component={Sidebar} />
+                    <Sidebar />
                     <div className="row main-row">
                         <div className="col-md-12 col-lg-12 col-sm-12">
                             <div className="container">

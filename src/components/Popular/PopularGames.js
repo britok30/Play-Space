@@ -14,19 +14,19 @@ const PopularGames = () => {
     const [postPerPage] = useState(25);
 
     useEffect(() => {
+        const fetchGames = async () => {
+            const key = 'b6c3fd718009446aa547da3b07c97945';
+            await axios
+                .get(
+                    `https://api.rawg.io/api/games?key=${key}&dates=${from},${to}&ordering=-added&page_size=${postPerPage}`
+                )
+                .then((res) => {
+                    setGames(games.concat(res.data.results).sort(randomize));
+                });
+        };
+
         fetchGames();
     }, []);
-
-    const fetchGames = async () => {
-        const key = 'b6c3fd718009446aa547da3b07c97945';
-        await axios
-            .get(
-                `https://api.rawg.io/api/games?key=${key}&dates=${from},${to}&ordering=-added&page_size=${postPerPage}`
-            )
-            .then((res) => {
-                setGames(games.concat(res.data.results).sort(randomize));
-            });
-    };
 
     const randomize = (a) => {
         return Math.random() - 0.5;
@@ -52,7 +52,21 @@ const PopularGames = () => {
     return (
         <div>
             <h1 className="lead-head">Popular Games of {year - 1}</h1>
-            <div className="card-columns">{renderGames}</div>
+            <div className="card-columns">
+                {games.length === 0 ? (
+                    <h1
+                        style={{
+                            color: '#fff',
+                            fontSize: '40px',
+                            height: '100vh',
+                        }}
+                    >
+                        LOADING...
+                    </h1>
+                ) : (
+                    renderGames
+                )}
+            </div>
         </div>
     );
 };

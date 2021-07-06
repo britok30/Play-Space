@@ -15,20 +15,20 @@ const Games = () => {
     const [to] = useState(`${year - 1}-12-31`);
 
     useEffect(() => {
+        const fetchGames = () => {
+            setCurrentPage(currentPage + 1);
+            const key = 'b6c3fd718009446aa547da3b07c97945';
+            axios
+                .get(
+                    `https://api.rawg.io/api/games?key=${key}&dates=${from},${to}&ordering=-added&page_size=${postPerPage}`
+                )
+                .then((res) => {
+                    setGames(games.concat(res.data.results).sort(randomize));
+                });
+        };
+
         fetchGames();
     }, []);
-
-    const fetchGames = () => {
-        setCurrentPage(currentPage + 1);
-        const key = 'b6c3fd718009446aa547da3b07c97945';
-        axios
-            .get(
-                `https://api.rawg.io/api/games?key=${key}&dates=${from},${to}&ordering=-added&page_size=${postPerPage}`
-            )
-            .then((res) => {
-                setGames(games.concat(res.data.results).sort(randomize));
-            });
-    };
 
     const randomize = (a) => {
         return Math.random() - 0.5;
@@ -53,11 +53,23 @@ const Games = () => {
 
     return (
         <div>
-            <Fade bottom cascade duration={3000} distance={'100px'}>
-                <h1 className="lead-head">PlaySpace</h1>
-            </Fade>
+            <h1 className="lead-head">PlaySpace</h1>
 
-            <div className="card-columns">{renderGames}</div>
+            <div className="card-columns">
+                {games.length === 0 ? (
+                    <h1
+                        style={{
+                            color: '#fff',
+                            fontSize: '40px',
+                            height: '100vh',
+                        }}
+                    >
+                        LOADING...
+                    </h1>
+                ) : (
+                    renderGames
+                )}
+            </div>
         </div>
     );
 };

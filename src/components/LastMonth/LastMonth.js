@@ -56,7 +56,19 @@ const LastMonthGames = () => {
         <div>
             <h1 className="lead-head">Last Month Releases</h1>
             <div className="card-columns">
-                {!games ? <h1>No games found.</h1> : renderGames}
+                {games.length === 0 ? (
+                    <h1
+                        style={{
+                            color: '#fff',
+                            fontSize: '40px',
+                            height: '100vh',
+                        }}
+                    >
+                        LOADING...
+                    </h1>
+                ) : (
+                    renderGames
+                )}
             </div>
         </div>
     );
